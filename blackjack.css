@@ -1,1 +1,28 @@
+body {
+    height:97vh;
+    width:97vw;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.titlecard {
+    /* Add shadows to create the "card" effect */
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 50vw;
+    text-align: center;
+    padding: 15px;
+    background-color: white;
+  }
+
+  button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+.titlebutton {
+    height: 50px;
+    width:80%;
+    margin: 10px;
+}
