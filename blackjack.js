@@ -1,4 +1,4 @@
-var deck={
+var cards={
     "ah":[11,1],
     "2h":2,
     "3h":3,
@@ -53,6 +53,49 @@ var deck={
     "kc":10
 }
 var deck_count=8;
-for (let i=0; i<deck_count; i++){
+var keys=Object.keys(cards);
 
+var game=true;
+
+function get_rnd_int(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
+
+function make_deck(){
+    let deck=[];
+    for (let i=0; i<deck_count; i++){
+        for (let j=0; j<keys.length;j++){
+            deck.push(keys[j])
+        }
+    }
+    return deck;
 }
+
+var main_deck=make_deck();
+var players_hand=[];
+var dealers_hand=[];
+
+function draw_card(number,location){
+    for (let i=0;i<number;i++){
+        card=get_rnd_int(0,main_deck.length);
+        location.push(main_deck[card]);
+        main_deck.splice(card,1);
+    }
+}
+function start_game(){
+    draw_card(2,dealers_hand)
+    draw_card(2,players_hand)
+}
+
+function check_value(hand){
+    value=0
+    for(let i=0; i<hand.length; i++){
+        card=hand[i]
+        value+=cards[card]
+        if (value>21 && (hand.contains("ah")||hand.contains("ad")||hand.contains("as")||hand.contains("ad"))){
+            
+        } 
+    }
+}
+//call initalize game function ie. starting cards
+start_game()
