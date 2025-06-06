@@ -1,0 +1,5 @@
+You need a way to display cards so however you want to do that is fine.
+You need a display for money, and possibly the value of the cards if you want to do that
+You need a draw card button a double button and a split button a bet button and allow amount for the bet
+You will also need to have a end turn button that ends the players turn. I can make it so it auto does the dealers turn after a double if nesacary,
+You will need a start new match button.
