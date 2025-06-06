@@ -38,7 +38,7 @@ var cards={
     "js":10,
     "qs":10,
     "ks":10,
-    "ac":[11,1],
+    "ac":11,
     "2c":2,
     "3c":3,
     "4c":4,
@@ -55,7 +55,6 @@ var cards={
 var deck_count=8;
 var keys=Object.keys(cards);
 
-var game=true;
 
 function get_rnd_int(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
@@ -72,30 +71,63 @@ function make_deck(){
 }
 
 var main_deck=make_deck();
-var players_hand=[];
+var players_hand=[[]];
 var dealers_hand=[];
-
-function draw_card(number,location){
-    for (let i=0;i<number;i++){
-        card=get_rnd_int(0,main_deck.length);
-        location.push(main_deck[card]);
-        main_deck.splice(card,1);
-    }
+var bet=0
+var money=5000
+function draw_card(hand){
+    card=get_rnd_int(0,main_deck.length);
+    hand.push(main_deck[card]);
+    main_deck.splice(card,1);
 }
-function start_game(){
-    draw_card(2,dealers_hand)
-    draw_card(2,players_hand)
+function start_game(amount){
+    draw_card(dealers_hand)
+    draw_card(players_hand[0])
+    draw_card(dealers_hand)
+    draw_card(players_hand[0])
+    bet=amount
 }
-
+function check_deck(){
+    console.log(deck.length)
+    return deck.length
+}
 function check_value(hand){
     value=0
+    soft=false
     for(let i=0; i<hand.length; i++){
         card=hand[i]
-        value+=cards[card]
-        if (value>21 && (hand.contains("ah")||hand.contains("ad")||hand.contains("as")||hand.contains("ad"))){
-            
+        value+=cards[card];
+        if (value>21 && (hand.contains("ah")||hand.contains("ad")||hand.contains("as")||hand.contains("ac"))){
+            value-=10;
         } 
+        if (hand.contains("ah")||hand.contains("ad")||hand.contains("as")||hand.contains("ac")){
+            soft=true
+        }
     }
+    console.log(value)
+    return value,soft
 }
+function check_hand(hand){
+    console.log(hand)
+    return hand
+}
+function double(hand){
+    bet*=2
+    draw_card(hand)
+}
+function split(hand){
+    new_hand=hand[1]
+    hand.splice[1,1]
+    players_hand.push(new_hand)
+}
+
+function dealer_move(){
+    v,s=check_value(dealers_hand)
+    if  (v<17||(v==17 && s)){
+        draw_card(dealers_hand)
+        return(true)
+    }
+    return(false)
+}
+
 //call initalize game function ie. starting cards
-start_game()
