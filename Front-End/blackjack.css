@@ -1,17 +1,21 @@
+/* Start Page Styles */
 body {
-    height:97vh;
-    width:97vw;
-    background-color: green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #222222;
+}
+
+.startdiv {
+  height:97vh;
+  width:97vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .titlecard {
     /* Add shadows to create the "card" effect */
     margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    width: 50vw;
+    width: 40vw;
     text-align: center;
     padding: 15px;
     background-color: white;
@@ -26,3 +30,55 @@ body {
     width:80%;
     margin: 10px;
 }
+
+
+/* Game Page Styles */
+.gameheader {
+  padding: 15px;
+  text-align: center;
+  color: #e1c564;
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+.gamediv {
+  height: 97vh;
+  width: 97vw;
+  display: flex;
+  justify-content: center;
+}
+
+.gameinfodiv {
+  display: flex;
+  width: 90vw;
+  height: 15vh;
+  margin: 0px;
+}
+
+.cashinfodiv {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 45vw;
+  align-items: start;
+}
+
+.totalinfodiv {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 45vw;
+  text-align: right;
+}
+
+.gameinfotext {
+  color: #c0c0c0;
+  margin: 10px 0;
+  /* overflow: hidden; */
+  font-size: 20px;
+}
+
